@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fintrack-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fintrack
+    username: fintrack
+    password: fintrack
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+
+app:
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    email: ${ADMIN_EMAIL:admin@local}
+    password: ${ADMIN_PASSWORD:admin12345}
+  mail:
+    summaryRecipient: ${SUMMARY_RECIPIENT_EMAIL:mailrahul2812@gmail.com}
+  jwt:
+    issuer: fintrack
+    secret: ${JWT_SECRET:dev-secret-dev-secret-dev-secret-dev-secret}
+    accessTokenMinutes: 60
+

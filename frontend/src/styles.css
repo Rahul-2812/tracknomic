@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --app-bg: #07111f;
+    --app-bg-deep: #040b16;
+    --app-surface: rgba(9, 19, 33, 0.78);
+    --app-surface-strong: rgba(11, 24, 40, 0.92);
+    --app-surface-soft: rgba(15, 29, 48, 0.62);
+    --app-border: rgba(72, 94, 124, 0.24);
+    --app-border-strong: rgba(113, 146, 173, 0.2);
+    --app-text: #eef4fb;
+    --app-text-muted: #93a6bb;
+    --app-text-soft: #6f8198;
+    --app-accent: #5fd0b0;
+    --app-accent-strong: #40bb98;
+    --app-accent-soft: rgba(95, 208, 176, 0.14);
+    --app-danger: #f2a3b4;
+    --app-shadow: 0 22px 60px rgba(1, 8, 18, 0.38);
+  }
+
+  html {
+    font-family: "Manrope", "Segoe UI", sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    color: var(--app-text);
+    background:
+      radial-gradient(1100px 580px at 18% 0%, rgba(70, 122, 186, 0.18), transparent 58%),
+      radial-gradient(900px 480px at 82% 16%, rgba(95, 208, 176, 0.12), transparent 56%),
+      linear-gradient(180deg, var(--app-bg) 0%, var(--app-bg-deep) 100%);
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(95, 208, 176, 0.22);
+    color: var(--app-text);
+  }
+}
+
+@layer components {
+  .app-metric-card {
+    @apply p-5;
+    background: linear-gradient(180deg, rgba(12, 24, 39, 0.92) 0%, rgba(9, 18, 31, 0.82) 100%);
+    border: 1px solid var(--app-border);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  }
+
+  .app-metric-label {
+    color: var(--app-text-muted);
+    @apply text-[11px] uppercase tracking-[0.22em];
+  }
+
+  .app-soft-panel {
+    border: 1px solid var(--app-border);
+    background: rgba(10, 21, 35, 0.62);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.015);
+  }
+
+  .app-table-shell {
+    overflow-x: auto;
+    border: 1px solid var(--app-border);
+    border-radius: 24px;
+    background: rgba(8, 17, 29, 0.42);
+  }
+
+  .app-table {
+    width: 100%;
+    font-size: 0.875rem;
+  }
+
+  .app-table thead {
+    background: rgba(14, 27, 44, 0.88);
+    color: var(--app-text-muted);
+    text-align: left;
+  }
+
+  .app-table th {
+    padding: 0.95rem 1rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .app-table tbody tr {
+    border-top: 1px solid var(--app-border);
+    background: rgba(11, 22, 37, 0.74);
+  }
+
+  .app-table tbody tr:hover {
+    background: rgba(13, 26, 43, 0.92);
+  }
+
+  .app-table tbody {
+    color: var(--app-text);
+  }
+
+  .app-table td {
+    padding: 0.95rem 1rem;
+    vertical-align: middle;
+  }
+
+  .app-table-empty {
+    color: var(--app-text-muted);
+  }
+
+  .app-inline-surface {
+    border: 1px solid var(--app-border);
+    background: rgba(11, 23, 38, 0.66);
+    border-radius: 20px;
+  }
+
+  .app-icon-button {
+    border: 1px solid var(--app-border);
+    background: rgba(18, 32, 49, 0.72);
+    color: var(--app-text);
+    border-radius: 14px;
+    padding: 0.5rem;
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  }
+
+  .app-icon-button:hover {
+    background: rgba(23, 39, 59, 0.92);
+    border-color: rgba(95, 208, 176, 0.26);
+    transform: translateY(-1px);
+  }
+
+  .app-danger-button {
+    border: 1px solid rgba(242, 163, 180, 0.22);
+    background: rgba(120, 35, 55, 0.18);
+    color: var(--app-danger);
+    border-radius: 14px;
+    padding: 0.5rem;
+    transition: background 160ms ease, transform 160ms ease;
+  }
+
+  .app-danger-button:hover {
+    background: rgba(148, 46, 69, 0.24);
+    transform: translateY(-1px);
+  }
+
+  .app-select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0.75rem;
+    border: 1px solid var(--app-border);
+    background: rgba(17, 31, 50, 0.72);
+    background-image: linear-gradient(45deg, transparent 50%, var(--app-text-muted) 50%), linear-gradient(135deg, var(--app-text-muted) 50%, transparent 50%);
+    background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
+    background-repeat: no-repeat;
+    background-size: 6px 6px, 6px 6px;
+    color-scheme: dark;
+    cursor: pointer;
+    padding: 0.625rem 2.25rem 0.625rem 0.75rem;
+    color: var(--app-text);
+    outline: none;
+  }
+
+  .app-select:focus {
+    border-color: var(--app-accent);
+    box-shadow: 0 0 0 2px rgba(95, 208, 176, 0.15);
+  }
+
+  .app-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  .app-select option {
+    background: rgb(12, 24, 39);
+    color: var(--app-text);
+  }
+}
+

@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/lib/api.ts","./src/lib/money.ts","./src/lib/storage.ts","./src/ui/app.tsx","./src/ui/components/button.tsx","./src/ui/components/card.tsx","./src/ui/components/input.tsx","./src/ui/components/modal.tsx","./src/ui/components/segmented.tsx"],"version":"5.9.3"}
